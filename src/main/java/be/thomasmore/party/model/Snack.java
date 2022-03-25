@@ -1,7 +1,10 @@
 package be.thomasmore.party.model;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
+import java.util.Collection;
 
 @Entity
 public class Snack {
@@ -12,6 +15,9 @@ public class Snack {
     private boolean sideDishPossible;
     private double price;
     private Double priceSideDish;
+
+    @ManyToMany(fetch = FetchType.LAZY)
+    private Collection<Venue> venue;
 
     public Snack() {
     }
